@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
+import Footer from "./component/Footer";
+import Header from "./component/Header";
 import AboutMe from "./page/AboutMe";
 import Contact from './page/Contact';
 import Design from './page/Design';
 import Develop from "./page/Develop";
-import Footer from "./page/Footer";
-import Header from "./page/Header";
 import Main from './page/Main';
 import Menu from "./page/Menu";
 
@@ -20,11 +20,11 @@ function App() {
   
   return (
     <BrowserRouter>
-      <div className="absolute top-0 text-white">
+      <div className="fixed bg-[#000000] top-0 z-30 text-white">
         <Header handleMenuToggle={handleMenuToggle} />
         {showMenu && <Menu handleMenuToggle={handleMenuToggle} />}
       </div>
-      <div className="h-[100vh] bg-[#000000] pt-[8vh] pb-[5vh]">
+      <div className="h-max bg-[#000000] pt-[8vh] pb-[5vh]">
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path='/AboutMe' element={<AboutMe />} />
@@ -33,7 +33,7 @@ function App() {
           <Route path='/Contact' element={<Contact />} />
         </Routes>
       </div>
-      <div className="absolute bottom-0 right-0">
+      <div className="fixed bottom-0 right-0">
         <Footer />
       </div>
     </BrowserRouter>

@@ -76,14 +76,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - npm i react-router-dom
 - npm install react-icons --save
 - npm i react-vertical-timeline-component
+- npm install react-scroll
+
 
 
 ## 화면 구성
-- Header: About Me / Portfolio / Board 이동 링크
-- Main: 간단 소개
-- About Me: 자세한 소개
-- Portfolio: 진행 프로젝트 소개
-- Board: 고양이 사진 API + chatGPT API 활용 챗봇 + MySQL/Node.js 연동 Connect 게시판
+- Header: Home 이동 / 메일, 번호 소개 / 메뉴 버튼
+- Main: 간단 소개 및 이동
+- About Me: 자세한 소개(Info, Skill set, Timeline)
+- Develop Portfolio
+- Design Portfolio
+- Contact
 - Footer: 노션/깃허브/인스타그램 링크
 
 

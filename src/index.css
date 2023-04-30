@@ -20,6 +20,17 @@
   border: 3px solid var(--primary) ;
 }
 
+*::-ms-scrollbar {
+
+  display: none;
+  overflow: auto
+  }
+*::-webkit-scrollbar {
+
+  display: none;
+  overflow: auto
+  }
+
 @tailwind components;
 @tailwind utilities;
 
