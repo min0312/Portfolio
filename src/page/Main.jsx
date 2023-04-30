@@ -8,7 +8,7 @@ export default function Main() {
         <p>Front-End</p>
         <p>Developer</p>
       </div>
-      <div className=" h-[70vh] text-xl flex justify-between place-items-center text-center">
+      <div className=" h-[60vh] text-xl flex justify-between place-items-center text-center">
         <Link to='/AboutMe' className="w-[15vw]">AboutMe</Link>
         <Link to='/Develop' className="w-[15vw]">Develop Portfolio</Link>
         <Link to='/Design' className="w-[15vw]">Design Portfolio</Link>
