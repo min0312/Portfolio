@@ -8,7 +8,8 @@ export default function Skillset() {
         <div className="mt-[2vh] mb-[1vh] flex flex-wrap text-center place-content-around">
           {skill.map((item) =>
             item.skill.map((skillName) => (
-              <p className="p-[3px] m-[3px] bg-white bg-opacity-30 rounded-md text-xs">
+              <p key={skillName}
+              className="p-[3px] m-[3px] bg-white bg-opacity-30 rounded-md text-xs">
                 {skillName}
               </p>
             ))

@@ -61,7 +61,7 @@ export default function Timeline() {
   }
 
   return(
-    <div className="mt-[3vh]">
+    <div className="mt-[3vh] mb-[5vh]">
       <div className='flex mb-[2vh] items-baseline justify-between'>
         <p className="text-xl">TIMELINE</p>
         <div>
@@ -75,7 +75,7 @@ export default function Timeline() {
             onClick={() => handleButtonClick(null)}>All</button>
         </div>
       </div>
-      <div className="h-[80vh] overflow-auto">
+      <div className="h-[60vh] overflow-auto">
         <VerticalTimeline >
           {sortedData
           .filter(item => !category || item.category === category) // category가 일치하는 경우에만 필터링

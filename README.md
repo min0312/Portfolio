@@ -76,6 +76,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - npm i react-router-dom
 - npm install react-icons --save
 - npm i react-vertical-timeline-component
+- npm install react-scroll
+
 
 
 

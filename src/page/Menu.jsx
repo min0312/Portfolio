@@ -1,7 +1,10 @@
 import { AiOutlinePlus } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { animateScroll as scroll } from "react-scroll";
 
 export default function Menu({ handleMenuToggle }) {
+  const scrollToElement = (id) => {
+    scroll.scrollTo(document.getElementById(id).offsetTop);
+  };
 
   return (
     <div className="fixed inset-0 bg-white bg-opacity-80 z-10 flex justify-center items-center">
@@ -11,11 +14,11 @@ export default function Menu({ handleMenuToggle }) {
         </button>
       </div>
       <div className="text-black text-center text-4xl font-extrabold">
-        <p className="h-[10vh]"><Link to="/" onClick={handleMenuToggle}>Home</Link></p>
-        <p className="h-[10vh]"><Link to="/AboutMe" onClick={handleMenuToggle}>AboutMe</Link></p>
-        <p className="h-[10vh]"><Link to="/Develop" onClick={handleMenuToggle}>Develop Portfolio</Link></p>
-        <p className="h-[10vh]"><Link to="/Design" onClick={handleMenuToggle}>Design Portfolio</Link></p>
-        <p className="h-[10vh]"><Link to="/Contact" onClick={handleMenuToggle}>Contact</Link></p>
+        <p className="h-[10vh]" onClick={() => scrollToElement("Home")}>Home</p>
+        <p className="h-[10vh]" onClick={() => scrollToElement("AboutMe")}>AboutMe</p>
+        <p className="h-[10vh]" onClick={() => scrollToElement("Develop")}>Develop Portfolio</p>
+        <p className="h-[10vh]" onClick={() => scrollToElement("Design")}>Design Portfolio</p>
+        <p className="h-[10vh]" onClick={() => scrollToElement("Contact")}>Contact</p>
       </div>
     </div>
   );
