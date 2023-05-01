@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Main() {
 
   return (
-    <div className="text-white pl-[10vw] pr-[10vw] pt-[5vh] pb-[5vh]">
+    <div className="text-white h-[87vh] pl-[10vw] pr-[10vw] pt-[5vh] pb-[5vh]">
       <div className="text-xl">
         <p>Front-End</p>
         <p>Developer</p>
