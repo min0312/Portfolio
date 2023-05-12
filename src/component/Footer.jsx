@@ -1,7 +1,6 @@
-
 export default function Footer () {
   return (
-    <div className="m-[1vw]">
+    <div className="m-[1vw] flex">
       <a href='https://www.notion.so/min0312/7b46ac1319974ef9ae41ef7563a40d49' className="flex items-center gap-[1vw]">
         <img src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1570106347/noticon/hx52ypkqqdzjdvd8iaid.svg' alt="Notion" className="h-[3vh] m-[1vh]"/>
       </a>

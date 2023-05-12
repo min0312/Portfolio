@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
+import Footer from "./component/Footer";
 import Header from "./component/Header";
 import Navbar from "./component/Navbar";
 import AboutMe from "./page/AboutMe";
@@ -31,9 +32,9 @@ function App() {
           <Route path='/Design' element={<Design />} />
           <Route path='/Contact' element={<Contact />} />
         </Routes>
-        {/* <div className="fixed bottom-0 right-0">
+        <div className="fixed bottom-0 right-0">
           <Footer />
-        </div> */}
+        </div>
       </BrowserRouter>
     </div>
   );

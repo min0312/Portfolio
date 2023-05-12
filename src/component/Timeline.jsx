@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import { IoSchool } from 'react-icons/io5';
 import { TbCertificate, TbMedal, TbRun } from 'react-icons/tb';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import timelinedata from "../data/Timelinedata";
 
@@ -9,46 +9,41 @@ export default function Timeline() {
 
   const getCategoryStyle = (category) => {
     switch (category) {
+      case '교육':
+        return {
+          icon: <IoSchool className='text-black h-6 w-6'/>
+        }
       case '활동':
         return {
-          iconStyle: { background: '#254D4C', color: '#fff' },
-          icon: <TbRun />,
-          contentStyle: { background: '#254D4C', color: '#fff' },
-          contentArrowStyle: { borderRight: '7px solid #254D4C' }
+          icon: <TbRun className='text-black h-6 w-6'/>
         }
       case '자격증':
         return {
-          iconStyle: { background: '#2F606E', color: '#fff' },
-          icon: <TbCertificate />,
-          contentStyle: { background: '#2F606E', color: '#fff' },
-          contentArrowStyle: { borderRight: '7px solid #2F606E' }
+          icon: <TbCertificate className='text-black h-6 w-6'/>
         }
       case '수상내역':
         return {
-          iconStyle: { background: '#4F708F', color: '#fff' },
-          icon: <TbMedal />,
-          contentStyle: { background: '#4F708F', color: '#fff' },
-          contentArrowStyle: { borderRight: '7px solid #4F708F' }
+          icon: <TbMedal className='text-black h-6 w-6'/>
         }
       default:
         return {
-          icon: null,
-          contentStyle: null
+          icon: null
         }
     }
   }
 
   const sortedData = timelinedata.sort((a, b) => {
     const getDate = (str) => {
-      if (str.includes('-')) {
-        const [startDate, endDate] = str.split(' - ');
-        const [startYear, startMonth] = startDate.split('.');
-        const [endYear, endMonth] = endDate.split('.');
+      if (str.includes("-")) {
+        const [start, end] = str.split(" - ");
+        const [startYear, startMonth] = start.split(".");
+        const [endYear, endMonth] = end.split(".");
         return new Date(startYear, startMonth - 1, 1) <= new Date(endYear, endMonth - 1, 1)
-          ? new Date(startYear, startMonth - 1, 1)
-          : new Date(endYear, endMonth - 1, 1);
+          ? new Date(endYear, endMonth - 1, 1)
+          : new Date(startYear, startMonth - 1, 1);
       }
-      return new Date(str);
+      const [year, month] = str.split(".");
+      return new Date(year, month - 1, 1);
     };
   
     const dateA = getDate(a.date);
@@ -56,41 +51,63 @@ export default function Timeline() {
     return dateB - dateA;
   });
   
+  
+  
+  
   const handleButtonClick = (category) => {
-    setCategory(category);
+    if (category === 'All') {
+      setCategory(null); // all 버튼 클릭 시 category를 초기화
+    } else {
+      setCategory(category);
+    }
   }
 
+  const cate = ["All", "교육", "활동", "자격증", "수상내역"];
+
   return(
-    <div className="mt-[3vh] mb-[5vh]">
-      <div className='flex mb-[2vh] items-baseline justify-between'>
-        <p className="text-xl">TIMELINE</p>
-        <div>
-          <button className='bg-[#254D4C] rounded-md pl-[3px] pr-[3px] mr-[5px]'
-            onClick={() => handleButtonClick('활동')}>Activation</button>
-          <button className='bg-[#2F606E] rounded-md pl-[3px] pr-[3px] mr-[5px]'
-            onClick={() => handleButtonClick('자격증')}>Certificate</button>
-          <button className='bg-[#4F708F] rounded-md pl-[3px] pr-[3px] mr-[5px]'
-            onClick={() => handleButtonClick('수상내역')}>Prize</button>
-          <button className='bg-[#7E7DA7] rounded-md pl-[3px] pr-[3px] mr-[5px]'
-            onClick={() => handleButtonClick(null)}>All</button>
+    <div className="mt-[6vh] mb-[5vh]">
+      <div className='flex items-center justify-between'>
+        <h3 className="text-3xl">What I did</h3>
+        <div className='flex items-baseline justify-between gap-2'>
+          {cate.map((item) => (
+            <button 
+              key={item}
+              className={`border-[1px] rounded-md w-[7vw] 
+                ${category === item ? 'bg-[#E2C044] text-[#000000] border-[#E2C044]' : 
+                category === null && item === 'All' ? 
+                'bg-[#E2C044] text-[#000000] border-[#E2C044]' : 
+                'border-[#F5F0F6] text-[#F5F0F6]'}
+                hover:border-[#E2C044] hover:text-[#E2C044]`}
+              onClick={() => handleButtonClick(item)}
+            >
+              {item}
+            </button>
+          ))}
         </div>
       </div>
-      <div className="h-[60vh] overflow-auto">
-        <VerticalTimeline >
+      <hr/>
+      <div className="sm:flex overflow-auto pl-[2vw] pt-[4vh] h-[30vh]">
           {sortedData
           .filter(item => !category || item.category === category) // category가 일치하는 경우에만 필터링
           .map((item) => (
-            <VerticalTimelineElement 
+            <div className='mb-6 sm:mb-0 text-xs w-[20vw]'
               key={item.title+item.date}
-              date={item.date + `  ` + item.location}
-              {...getCategoryStyle(item.category)}
-              className="text-xs"
             >
-              <div className="text-base">{item.title}</div>
-              <div className="text-sm">{item.memo}</div>
-            </VerticalTimelineElement>
+              <div className="flex items-center">
+                  <div className="flex items-center justify-center w-9 h-8 bg-[#F5F0F6] rounded-full ">
+                    {getCategoryStyle(item.category).icon}
+                  </div>
+                  <div className="hidden sm:flex w-full bg-[#F5F0F6] h-0.5"></div>
+              </div>
+              <div className="-pt-1 pl-7 sm:pr-8 w-[17vw]">
+                  <time className="mb-2 text-sm">{item.date}</time>
+                  <div className="text-sm">{item.title}</div>
+                  <div className="text-sm">{item.location}</div>
+                  <div className="text-xs">{item.memo}</div>
+              </div>
+              
+            </div>
           ))}
-        </VerticalTimeline>
       </div>
     </div>
   )

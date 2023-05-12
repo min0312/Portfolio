@@ -6,7 +6,7 @@
 } */
 
 /* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
   width: 5px;
 }
 
@@ -29,7 +29,7 @@
 
   display: none;
   overflow: auto
-  }
+  } */
 
 @tailwind components;
 @tailwind utilities;

@@ -1,12 +1,11 @@
-import Info from "../component/Info";
 import Skillset from "../component/Skillset";
 import Timeline from "../component/Timeline";
 
 export default function AboutMe() {
   return (
-    <div id="AboutMe" className="text-white overflow-auto pl-[10vw] pr-[10vw]">
-      <p className="text-3xl pt-[8vh] pb-[5vh]">Front-End 개발자 금민경입니다.</p>
-      <Info />
+    <div id="AboutMe" className="pt-[4vh] pl-[10vw] pr-[10vw]">
+      <h3 className="text-3xl">What can I use</h3>
+      <hr/>
       <Skillset />
       <Timeline />
     </div>
