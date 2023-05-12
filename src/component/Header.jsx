@@ -1,5 +1,3 @@
-// ...
-
 import { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { Link } from "react-router-dom";

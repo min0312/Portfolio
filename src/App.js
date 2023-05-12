@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import Header from "./component/Header";
+import Navbar from "./component/Navbar";
 import AboutMe from "./page/AboutMe";
 import Contact from "./page/Contact";
 import Design from "./page/Design";
@@ -22,6 +23,7 @@ function App() {
       <BrowserRouter>
         <Header handleMenuToggle={handleMenuToggle}/>
         {showMenu && <Menu handleMenuToggle={handleMenuToggle} />}
+        <Navbar />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path='/AboutMe' element={<AboutMe />} />
