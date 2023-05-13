@@ -3,9 +3,9 @@ import skill from '../data/Info.json';
 export default function Skillset() {
   return (
     <div className='mt-[2vh]'>
-      <div className='flex items-center text-lg'>
-        <p className='w-[8vw]'>Full-Stack<br/> Web Develop</p>
-        <div className="mt-[2vh] mb-[1vh] flex">
+      <div className='flex flex-col sm:flex-row md:items-center mt-[1vh]'>
+        <p className='whitespace-nowrap w-[20vw]'>Full-Stack <br/> Web Develop</p>
+        <div className="mt-[1vh] mb-[1vh] flex flex-wrap w-[60vw]">
           {skill.map((item) =>
             item.Full.map((skillName) => (
               <p key={skillName}
@@ -17,9 +17,9 @@ export default function Skillset() {
           )}
         </div>
       </div>
-      <div className='flex items-center'>
-        <p className='w-[8vw]'>Database</p>
-        <div className="mt-[2vh] mb-[1vh] flex">
+      <div className='flex flex-col sm:flex-row md:items-center mt-[1vh]'>
+        <p className='whitespace-nowrap w-[20vw]'>Database</p>
+        <div className="mt-[1vh] mb-[1vh] flex flex-wrap w-[60vw]">
           {skill.map((item) =>
             item.DB.map((skillName) => (
               <p key={skillName}
@@ -31,9 +31,9 @@ export default function Skillset() {
           )}
         </div>
       </div>
-      <div className='flex items-center'>
-        <p className='w-[8vw]'>Data Analysis<br/>/ Deep-Learning</p>
-        <div className="mt-[2vh] mb-[1vh] flex">
+      <div className='flex flex-col sm:flex-row md:items-center mt-[1vh]'>
+        <p className='whitespace-nowrap w-[20vw]'>Data Analysis<br/>/ Deep-Learning</p>
+        <div className="mt-[1vh] mb-[1vh] flex flex-wrap w-[60vw]">
           {skill.map((item) =>
             item.Data.map((skillName) => (
               <p key={skillName}
@@ -45,9 +45,9 @@ export default function Skillset() {
           )}
         </div>
       </div>
-      <div className='flex items-center'>
-        <p className='w-[8vw]'>Design</p>
-        <div className="mt-[2vh] mb-[1vh] flex">
+      <div className='flex flex-col sm:flex-row md:items-center mt-[1vh]'>
+        <p className='whitespace-nowrap w-[20vw]'>Design</p>
+        <div className="mt-[1vh] mb-[1vh] flex flex-wrap w-[60vw]">
           {skill.map((item) =>
             item.Design.map((skillName) => (
               <p key={skillName}
@@ -59,9 +59,9 @@ export default function Skillset() {
           )}
         </div>
       </div>
-      <div className='flex items-center'>
-        <p className='w-[8vw]'>Etc</p>
-        <div className="mt-[2vh] mb-[1vh] flex">
+      <div className='flex flex-col sm:flex-row md:items-center mt-[1vh]'>
+        <p className='whitespace-nowrap w-[20vw]'>Etc</p>
+        <div className="mt-[1vh] mb-[1vh] flex flex-wrap w-[60vw]">
           {skill.map((item) =>
             item.Etc.map((skillName) => (
               <p key={skillName}

@@ -1,33 +1,46 @@
 import { useState } from 'react';
 import { IoSchool } from 'react-icons/io5';
 import { TbCertificate, TbMedal, TbRun } from 'react-icons/tb';
-import 'react-vertical-timeline-component/style.min.css';
+import { useMediaQuery } from 'react-responsive';
 import timelinedata from "../data/Timelinedata";
 
 export default function Timeline() {
+
+  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 1024px)' });
+
   const [category, setCategory] = useState(null);
 
   const getCategoryStyle = (category) => {
     switch (category) {
       case '교육':
         return {
-          icon: <IoSchool className='text-black h-6 w-6'/>
+          icon: <IoSchool className='text-black h-6 w-6'/>,
+          name: "Education",
+          logo: <IoSchool className='flex items-center align-middle'/>
         }
       case '활동':
         return {
-          icon: <TbRun className='text-black h-6 w-6'/>
+          icon: <TbRun className='text-black h-6 w-6'/>,
+          name: "Activity",
+          logo: <TbRun className='flex items-center align-middle'/>
         }
       case '자격증':
         return {
-          icon: <TbCertificate className='text-black h-6 w-6'/>
+          icon: <TbCertificate className='text-black h-6 w-6'/>,
+          name: "Certificate",
+          logo: <TbCertificate className='flex items-center align-middle'/>
         }
       case '수상내역':
         return {
-          icon: <TbMedal className='text-black h-6 w-6'/>
+          icon: <TbMedal className='text-black h-6 w-6'/>,
+          name: "Prize",
+          logo: <TbMedal className='flex items-center align-middle'/>
         }
       default:
         return {
-          icon: null
+          icon: null,
+          name: "All",
+          logo: "All"
         }
     }
   }
@@ -72,7 +85,7 @@ export default function Timeline() {
           {cate.map((item) => (
             <button 
               key={item}
-              className={`border-[1px] rounded-md w-[7vw] 
+              className={`border-[1px] rounded-md w-[7vw] h-[3vh]
                 ${category === item ? 'bg-[#E2C044] text-[#000000] border-[#E2C044]' : 
                 category === null && item === 'All' ? 
                 'bg-[#E2C044] text-[#000000] border-[#E2C044]' : 
@@ -80,17 +93,18 @@ export default function Timeline() {
                 hover:border-[#E2C044] hover:text-[#E2C044]`}
               onClick={() => handleButtonClick(item)}
             >
-              {item}
+              {isMobileOrTablet ? getCategoryStyle(item).logo : getCategoryStyle(item).name}
             </button>
           ))}
         </div>
       </div>
       <hr/>
-      <div className="sm:flex overflow-auto pl-[2vw] pt-[4vh] h-[30vh]">
+
+      <div className="sm:flex overflow-auto pl-[2vw] pt-[4vh] md:h-[30vh] h-[70vh]">
           {sortedData
           .filter(item => !category || item.category === category) // category가 일치하는 경우에만 필터링
           .map((item) => (
-            <div className='mb-6 sm:mb-0 text-xs w-[20vw]'
+            <div className='mb-6 sm:mb-0 text-xs lg:w-[20vw] w-[35vw]'
               key={item.title+item.date}
             >
               <div className="flex items-center">
@@ -99,13 +113,12 @@ export default function Timeline() {
                   </div>
                   <div className="hidden sm:flex w-full bg-[#F5F0F6] h-0.5"></div>
               </div>
-              <div className="-pt-1 pl-7 sm:pr-8 w-[17vw]">
+              <div className="-pt-1 pl-7 sm:pr-8 w-[70vw] sm:w-[17vw] md:w-[25vw]">
                   <time className="mb-2 text-sm">{item.date}</time>
                   <div className="text-sm">{item.title}</div>
                   <div className="text-sm">{item.location}</div>
                   <div className="text-xs">{item.memo}</div>
               </div>
-              
             </div>
           ))}
       </div>

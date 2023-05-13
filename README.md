@@ -22,6 +22,9 @@ https://www.figma.com/file/xkNiDAkkC5khaLVqLobHQ0/Untitled?type=design&node-id=2
 - npm install -D tailwindcss
 - npx tailwindcss init
 - npm i react-router-dom
-- npm install react-icons --save
-- npm i react-vertical-timeline-component
+- npm install react-icons --save 
+<!-- 리액트 아이콘 -->
 - npm install react-scroll
+<!-- 스크롤로 페이지 이동 -->
+- npm install react-responsive
+<!-- 반응형 -->

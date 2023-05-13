@@ -15,7 +15,7 @@ export default function Header() {
   }
 
   return (
-    <div className="w-[100vw] flex h-[8vh] p-[2vh] justify-between items-center">
+    <div className="w-[100vw] flex h-[8vh] p-[2vh] z-50 justify-between items-center fixed bg-black">
       <Link to='/' className="w-[15vw] text-lg text-[#F0A500] text-center">Gold__99k</Link>
       <div className="w-[4vw] flex items-center justify-center"> {/* 수정 */}
         <button onClick={toggleMenu} className="z-50">

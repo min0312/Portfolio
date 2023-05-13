@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import Footer from "./component/Footer";
@@ -14,6 +15,7 @@ import Menu from "./page/Menu";
 function App() {
 
   const [showMenu, setShowMenu] = useState(false);
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
 
   const handleMenuToggle = () => {
     setShowMenu(!showMenu);
@@ -24,7 +26,7 @@ function App() {
       <BrowserRouter>
         <Header handleMenuToggle={handleMenuToggle}/>
         {showMenu && <Menu handleMenuToggle={handleMenuToggle} />}
-        <Navbar />
+        {isTabletOrMobile ? null : <Navbar /> }
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path='/AboutMe' element={<AboutMe />} />
