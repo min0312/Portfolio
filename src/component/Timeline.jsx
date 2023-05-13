@@ -113,7 +113,7 @@ export default function Timeline() {
                   </div>
                   <div className="hidden sm:flex w-full bg-[#F5F0F6] h-0.5"></div>
               </div>
-              <div className="-pt-1 pl-7 sm:pr-8 w-[70vw] sm:w-[17vw] md:w-[25vw]">
+              <div className="-pt-1 pl-7 sm:pr-8 w-[70vw] lg:w-[17vw] md:w-[25vw]">
                   <time className="mb-2 text-sm">{item.date}</time>
                   <div className="text-sm">{item.title}</div>
                   <div className="text-sm">{item.location}</div>

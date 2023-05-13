@@ -6,8 +6,9 @@
 } */
 
 /* Chrome, Edge, and Safari */
-/* *::-webkit-scrollbar {
-  width: 5px;
+*::-webkit-scrollbar {
+  height: 0.8vh;
+  color: white;
 }
 
 *::-webkit-scrollbar-track {
@@ -20,7 +21,7 @@
   border: 3px solid var(--primary) ;
 }
 
-*::-ms-scrollbar {
+/* *::-ms-scrollbar {
 
   display: none;
   overflow: auto
