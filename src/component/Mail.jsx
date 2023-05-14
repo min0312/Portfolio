@@ -10,6 +10,10 @@ export default function Mail () {
 
   const sendEmail = (e) => {
     e.preventDefault();
+    const form = e.target;
+      if (!form.checkValidity()) {
+        alert("내용을 모두 입력해주세요")
+      }
     try {
       emailjs.sendForm(service_id, template_id, form.current, public_key)
       alert("전송완료")
@@ -21,26 +25,30 @@ export default function Mail () {
   const content = ["Name", "Email", "Phone", "Title", "Message"]
 
   return (
-    <form ref={form} onSubmit={sendEmail}
-      className='align-middle'>
+    <form ref={form} 
+    onSubmit={sendEmail}
+      className='sm:w-[60vw] md:w-[40vw] lg:w-[30vw]'>
       {content.map((item) => 
         <div key={item}
-        className='flex border-[1px] rounded-lg p-[3px] pl-[17px] gap-[3vw] mt-[2vh] border-[#F5F0F6] sm:w-[60vw] md:w-[40vw] lg:w-[30vw]'>
+        className='flex border-[1px] rounded-lg p-[3px] pl-[17px] gap-[3vw] mt-[2vh] border-[#F5F0F6]'>
           {item === "Message" ? 
-          <textarea name={`Message`} 
+          <textarea name={`Message`} required 
           placeholder={`내용을 입력해주세요`}
-          className='bg-transparent focus:outline-none h-[30vh] w-[100%] focus:border-none'/>:
+          className='bg-transparent focus:outline-none h-[40vh] w-[100%] focus:border-none'/>:
           <>
             <div className='w-[50px]'>{item}</div>
             <input type="text" name={`user_${item}`} 
               placeholder={`${item}을 입력해주세요`}
-              className='bg-transparent w-[80%] focus:outline-none'/>
+              className='bg-transparent w-[80%] focus:outline-none'
+              autoComplete='off' required />
           </>
         }
         </div>
       )}
-      <button type='submit' value="send">
-        send
+      <button type='submit' value="send" 
+        className='w-[100%] border-[1px] border-[#F5F0F6] rounded-lg p-[3px] mt-[2vh]
+        hover:border-[#E2C044] hover:text-[#E2C044] focus:border-none focus:text-[#000000] focus:bg-[#E2C044]'>
+        전송하기
       </button>
     </form>
   );
