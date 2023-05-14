@@ -23,7 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # info
-Info.json
-Timelinedata.json
-School.json
+/src/data
 .env

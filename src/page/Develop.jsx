@@ -1,7 +1,18 @@
+import { useState } from "react";
+import DevelopInfo from "../component/DevelopInfo";
+import Search from "../component/Search";
+
 export default function Develop() {
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const handleResultSelect = (item) => {
+    setSelectedItem(item);
+  };
+
   return (
-    <div className="pt-[12vh]">
-      <h1>Develop</h1>
+    <div className="pt-[12vh] pl-[10vw] pr-[10vw] flex">
+      <Search onResultSelect={handleResultSelect} />
+      <DevelopInfo selectedItem={selectedItem} />
     </div>
   )
 }
