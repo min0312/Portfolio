@@ -10,7 +10,7 @@ export default function Develop() {
   };
 
   return (
-    <div className="pt-[12vh] pl-[10vw] pr-[10vw] flex">
+    <div className="pt-[12vh] pl-[10vw] pr-[10vw] flex flex-col md:flex-row">
       <Search onResultSelect={handleResultSelect} />
       <DevelopInfo selectedItem={selectedItem} />
     </div>

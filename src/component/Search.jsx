@@ -27,7 +27,7 @@ const Search = ({ onResultSelect }) => {
   };  
 
   return (
-    <div className='w-[25vw] pr-[3vw]'>
+    <div className='lg:w-[25vw] md:w-[30vw] sm:w-[80vw] pr-[3vw]'>
       <div>
         <h3>Search</h3>
         <input
@@ -41,10 +41,22 @@ const Search = ({ onResultSelect }) => {
       <div className='border-[#F5F0F6] border-[1px] rounded-lg h-[70vh]'>
         {results.map((item) => (
           <div key={item.id} onClick={() => onResultSelect(item)}
-            className='border-[#F5F0F6] rounded-lg pl-[1vw] pt-[0.5vw] pb-[0.5vw] border-[1px] m-[1vw]'>
+            className='border-[#F5F0F6] rounded-lg pl-[1vw] pt-[0.5vw] pb-[0.5vw] border-[1px] m-[1vw]
+            hover:border-[#E2C044] hover:text-[#E2C044] focus:border-none focus:text-[#000000] focus:bg-[#E2C044]'>
             <p className=''>{item.title}</p>
-            <p className='mt-[0.2vw] mb-[0.2vw] text-sm'>{item.date}{item.role}</p>
-            <p className='text-sm'>{item.used}</p>
+            <p className='mt-[0.1vw] mb-[0.3vw] text-sm flex gap-5'>
+              {item.date}
+              <div className='flex gap-2'>
+                {item.role.map((roleitem) => (
+                  <p className='text-sm' key={roleitem}>{roleitem}</p>
+                ))}
+              </div>
+            </p>
+            <div className='flex gap-1'>
+              {item.used.map((usedItem) => (
+                <p className='text-xs border-[0.5px] border-[#F5F0F6] rounded-md p-[2px]' key={usedItem}>{usedItem}</p>
+              ))}
+            </div>
           </div>
         ))}
       </div>
