@@ -43,7 +43,7 @@ const DesignInfo = ({ selectedItem }) => {
         </div>
         <p className='pt-[0.5vh]'>업체: {selectedItem.ent}</p>
       </div>
-      <div className='mt-[3vh] max-h-[58vh] overflow-auto'>
+      <div className='mt-[3vh] h-[30vh] overflow-auto'>
         <div className='pb-[3vh]'>
           <h3 className='text-xl'>About This Project</h3>
           <hr/>

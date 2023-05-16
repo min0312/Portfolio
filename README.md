@@ -28,6 +28,9 @@ https://www.figma.com/file/xkNiDAkkC5khaLVqLobHQ0/Untitled?type=design&node-id=2
 <!-- 스크롤로 페이지 이동 -->
 - npm install react-responsive
 <!-- 반응형 -->
-npm install @emailjs/browser --save
-npm install emailjs-com
+- npm install @emailjs/browser --save
+- npm install emailjs-com
 <!-- 메일 전송 -->
+- npm install react-slick --save
+- npm install slick-carousel --save
+<!-- 캐러쉘 -->
