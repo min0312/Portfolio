@@ -40,13 +40,13 @@ export default function CarouselImg() {
   };
 
   return (
-    <div className="w-[20vw] h-[20vh]">
+    <div className="md:w-[25vw] md:h-[30vh] w-[80vw]">
       <Slider {...settings}>
         {data[0].url.map((url, index) => (
           <div key={data[0].id[index]}
             className=''>
-            <p>{data[0].info[index]}</p>
-            <img src={url} alt={`item ${index + 1}`} />
+            <p className='text-xs'>{data[0].info[index]}</p>
+            <img src={url} alt={`item ${index + 1}`}/>
           </div>
         ))}
       </Slider>
