@@ -27,20 +27,20 @@ const DevelopInfo = ({ selectedItem }) => {
       </div>
       <div>
         <p>기간: {selectedItem.date}</p>
-        <p className='flex gap-1 pt-[0.5vh]'>역할: 
+        <div className='flex gap-1 pt-[0.5vh]'>역할: 
           {selectedItem.role.map((item) => (
             <p key={item}>
               {item} / 
             </p>
           ))}
-        </p>
-        <p className='flex gap-1 pt-[0.5vh]'>사용 툴: 
+        </div>
+        <div className='flex gap-1 pt-[0.5vh]'>사용 툴: 
           {selectedItem.used.map((item) => (
             <p key={item}>
               {item} / 
             </p>
           ))}
-        </p>
+        </div>
         <p className='pt-[0.5vh]'>업체: {selectedItem.ent}</p>
       </div>
       <div className='pt-[3vh] pb-[3vh]'>
