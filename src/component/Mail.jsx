@@ -14,12 +14,14 @@ export default function Mail () {
       if (!form.checkValidity()) {
         alert("내용을 모두 입력해주세요")
       }
-    try {
-      emailjs.sendForm(service_id, template_id, form.current, public_key)
-      alert("전송완료")
-    } catch (error) {
-      console.log("에러")
-    }
+      else {
+        try {
+          emailjs.sendForm(service_id, template_id, form, public_key)
+          alert("전송완료")
+        } catch (error) {
+          console.log("에러", error)
+        }
+      }
   };
 
   const content = ["Name", "Email", "Phone", "Title", "Message"]
