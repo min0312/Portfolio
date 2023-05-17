@@ -29,7 +29,7 @@ export default function Nav() {
               onMouseLeave={() => setHoveredId(null)} // 해당 동그라미에서 마우스가 벗어났을 때 id를 초기화
             >
               {hoveredId === item.id && ( // 현재 hover된 동그라미에 대해서만 네모를 보여줌
-                <div className={`absolute backdrop-blur-sm -top-3 right-10 w-[8vw] rounded-lg text-center p-2
+                <div className={`absolute backdrop-blur-md -top-3 right-10 w-[8vw] rounded-lg text-center p-2
                 ${location.pathname === item.path ? "bg-[#E2C044] text-[#000000]" : "text-[#E2C044] border-2 border-[#E2C044] border-solid"}`}>
                   {item.name}
                 </div>
